@@ -10,7 +10,12 @@ const taskRoutes = require("./routes/taskRoutes");
 const authRoutes = require("./routes/authRoutes");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  {
+    origin: "https://mern-task-management-clsuthar-cuh.vercel.app/",
+    credentials: true
+  }
+));
 
 const mongoUrl = process.env.MONGODB_URL;
 mongoose.connect(mongoUrl, err => {
